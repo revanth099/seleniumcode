@@ -1,3 +1,4 @@
+/*these are the newly added files to check the git pull action to the remote repositry*/
 package com.companyname.tests;
 import junit.framework.TestCase;
 import org.openqa.selenium.*;
