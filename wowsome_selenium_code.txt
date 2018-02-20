@@ -1,0 +1,43 @@
+import java.util.concurrent.TimeUnit;
+
+import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+
+public class Wowsome {
+	 public static void main(String[] args) throws InterruptedException {
+		 //List<WebElement>links;
+		 System.setProperty("webdriver.chrome.driver","C:\\selenium jar file\\chromedriver\\chromedriver.exe");
+		 WebDriver driver = new ChromeDriver();
+	     driver.manage().window().maximize();
+	     driver.get("http://wowso.me/");
+	     driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+	     WebElement ip = driver.findElement(By.xpath("//*[@id=\"menu-item-49801\"]/a"));
+	     ip.click();
+	     Actions action = new Actions(driver);
+		 action.moveToElement(ip).build().perform();
+		driver.findElement(By.linkText("Publisher")).click();
+		
+		
+		driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"\t");
+		String windowHandle = driver.getWindowHandle();
+	    driver.findElement(By.cssSelector("body")).sendKeys(Keys.CONTROL +"t");
+		WebElement ip1 = driver.findElement(By.xpath("//*[@id=\"menu-item-49801\"]/a"));
+	     ip.click();
+	     Actions action1 = new Actions(driver);
+		 action1.moveToElement(ip1).build().perform();
+		driver.findElement(By.linkText("Enterprise")).click();
+		 
+		 WebElement about = driver.findElement(By.xpath("//*[@id=\"menu-item-49804\"]/a"));
+		 about.click();
+	     Actions abtact = new Actions(driver);
+	     abtact.moveToElement(about).build().perform();
+	     driver.findElement(By.xpath("//*[@id=\"menu-item-49805\"]/a")).click();
+	     driver.findElement(By.linkText("Team")).click();
+	     
+	}  
+	 
+}
