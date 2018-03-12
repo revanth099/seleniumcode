@@ -46,7 +46,7 @@ public class ApsdclElecBill {
 	static void NavtoApsdcl(String value1) {
 		try {
 			LaunchBrowser("https://www.google.com");
-			driver.findElement(By.id("sb_ifc0")).sendKeys(value1);
+			driver.findElement(By.xpath(".//*[@id='sb_ifc0']/div/input[@id='lst-ib']")).sendKeys(value1);
 			driver.findElement(By.xpath(".//*[@name='btnK']")).submit();
 			Thread.sleep(2000);
 			driver.findElement(By.linkText("APSPDCL - BillDesk")).click();
