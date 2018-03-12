@@ -14,13 +14,28 @@ public class ApsdclElecBill {
 		try {
 			System.setProperty("webdriver.chrome.driver","C:\\selenium jar file\\chromedriver\\chromedriver.exe");
 			driver =new ChromeDriver();
-			//System.setProperty("webdriver.gecko.driver","C:\\selenium jar file\\geckodriver\\geckodriver.exe");
-			//driver =new FirefoxDriver();
+			
+			/*System.setProperty("webdriver.gecko.driver","C:\\selenium jar file\\geckodriver\\geckodriver.exe");
+			DesiredCapabilities d = new DesiredCapabilities();
+			d.setCapability("marionette", false);
+			driver =new FirefoxDriver(d);*/
 			driver.manage().window().maximize();
 			
 			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 			
 			driver.get(url);
+			driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
+			String your_title = "Google";
+			String currentWindow = driver.getWindowHandle();  //will keep current window to switch back
+			for(String winHandle : driver.getWindowHandles()){
+			   if (driver.switchTo().window(winHandle).getTitle().equals(your_title)) {
+			     //This is the one you're looking for
+			     break;
+			   } 
+			   else {
+			      driver.switchTo().window(currentWindow);
+			   } 
+			}
 			
 			
 		} catch (Exception e) {
